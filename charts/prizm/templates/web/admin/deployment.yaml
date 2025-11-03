@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prizm-web-admin
+  namespace: default
+  labels:
+    app: prizm-web-admin
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prizm-web-admin
+  template:
+    metadata:
+      labels:
+        app: prizm-web-admin
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: "ghcr.io/himedia-no1/prizm-web-admin:main"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+            - name: static-files
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: prizm-web-admin-nginx-config
+        - name: static-files
+          emptyDir: {}

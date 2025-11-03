@@ -1,0 +1,22 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Helm
+*.tgz
+.helmignore
+
+# Secrets
+*secret*.yaml
+*-secrets.yaml
+customer-*.yaml
+
+# Temporary
+*.tmp
+*.bak
+*~

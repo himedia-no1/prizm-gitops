@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prizm-service-core
+  namespace: default
+  labels:
+    app: prizm-service-core
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: prizm-service-core
+  template:
+    metadata:
+      labels:
+        app: prizm-service-core
+        tier: backend
+    spec:
+      containers:
+        - name: core
+          image: "ghcr.io/himedia-no1/prizm-service-core:main"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: prizm-service-core-config

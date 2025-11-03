@@ -1,0 +1,6 @@
+apiVersion: v2
+name: prizm
+version: 1.0.0
+appVersion: "1.0.0"
+description: Prizm - A collaborative messaging platform designed for developers
+type: application
