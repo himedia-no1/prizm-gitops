@@ -1,0 +1,4 @@
+helm:
+  chart: ./charts/prizm
+  releaseName: prizm
+  targetNamespace: prizm-development
