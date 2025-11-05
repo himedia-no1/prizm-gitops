@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: prizm-web-landing
-          image: "ghcr.io/himedia-no1/prizm-web-landing:{{ index .Values.image.tag "prizm-web-landing" }}"
+          image: 'ghcr.io/himedia-no1/prizm-web-landing:{{ index .Values.image "prizm-web-landing-tag" }}'
           imagePullPolicy: IfNotPresent
 
           ports:
