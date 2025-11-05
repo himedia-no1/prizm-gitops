@@ -13,7 +13,7 @@ spec:
       name: {{ .Values.gateway.name }}
 
   hostnames:
-    - "prizm.run"
+    - "dev.prizm.run"
 
   rules:
     - matches:
