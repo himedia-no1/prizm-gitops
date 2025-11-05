@@ -18,9 +18,8 @@ spec:
   rules:
     - matches:
         - path:
-            type: Exact
+            type: PathPrefix
             value: "/"
-
       backendRefs:
         - name: prizm-web-landing
           port: 80
