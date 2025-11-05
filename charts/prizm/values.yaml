@@ -1,0 +1,11 @@
+image:
+  tag:
+    prizm-web-landing: tag
+    prizm-web-user: tag
+    prizm-web-admin: tag
+    prizm-service-core: tag
+    prizm-service-ai: tag
+
+gateway:
+  namespace: nginx-gateway
+  name: http-gateway
