@@ -1,11 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prizm-web-landing
   namespace: {{ .Release.Namespace }}
+  name: prizm-web-landing
   labels:
     app: prizm-web-landing
-    tier: frontend
 
 spec:
   replicas: 1
@@ -18,7 +17,6 @@ spec:
     metadata:
       labels:
         app: prizm-web-landing
-        tier: frontend
 
     spec:
       containers:

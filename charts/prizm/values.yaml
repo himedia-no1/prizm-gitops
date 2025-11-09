@@ -5,6 +5,6 @@ image:
     prizm-service-core-tag: tag
     prizm-service-ai-tag: tag
 
-gateway:
-  namespace: nginx-gateway
-  name: http-gateway
+ingress:
+  clusterIssuer: selfsigned-cluster-issuer
+  hosts: dev.prizm.run

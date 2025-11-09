@@ -1,11 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prizm-web-landing
   namespace: {{ .Release.Namespace }}
+  name: prizm-web-landing
   labels:
     app: prizm-web-landing
-    tier: frontend
 
 spec:
   type: ClusterIP

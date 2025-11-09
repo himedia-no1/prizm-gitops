@@ -1,0 +1,56 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: prizm
+  labels:
+    app: prizm
+
+  annotations:
+    cert-manager.io/cluster-issuer: "{{ .Values.ingress.clusterIssuer }}"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+spec:
+  ingressClassName: nginx
+
+  tls:
+    - hosts:
+        - "{{ .Values.ingress.hosts }}"
+      secretName: prizm-tls-secret
+
+  rules:
+    - host: "{{ .Values.ingress.hosts }}"
+      http:
+        paths:
+
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: prizm-web-landing
+                port:
+                  number: 80
+
+          - path: "/app"
+            pathType: Prefix
+            backend:
+              service:
+                name: prizm-web-user
+                port:
+                  number: 80
+
+          - path: "/mgmt"
+            pathType: Prefix
+            backend:
+              service:
+                name: prizm-web-admin
+                port:
+                  number: 80
+
+          - path: "/api"
+            pathType: Prefix
+            backend:
+              service:
+                name: prizm-service-core
+                port:
+                  number: 80
