@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: prizm-service-core
+  labels:
+    app: prizm-service-core
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: prizm-service-core
+
+  template:
+    metadata:
+      labels:
+        app: prizm-service-core
+
+    spec:
+      containers:
+        - name: prizm-service-core
+          image: "{{ .Values.prizm.service.core.prizmServiceCoreImage }}"
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: prizm-service-core
+            - secretRef:
+                name: prizm-service-core
+
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP

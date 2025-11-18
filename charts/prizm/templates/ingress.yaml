@@ -27,23 +27,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: prizm-web-landing
-                port:
-                  number: 80
-
-          - path: "/app"
-            pathType: Prefix
-            backend:
-              service:
                 name: prizm-web-user
-                port:
-                  number: 80
-
-          - path: "/mgmt"
-            pathType: Prefix
-            backend:
-              service:
-                name: prizm-web-admin
                 port:
                   number: 80
 
@@ -52,5 +36,13 @@ spec:
             backend:
               service:
                 name: prizm-service-core
+                port:
+                  number: 80
+
+          - path: "/file"
+            pathType: Prefix
+            backend:
+              service:
+                name: prizm-infra-minio
                 port:
                   number: 80

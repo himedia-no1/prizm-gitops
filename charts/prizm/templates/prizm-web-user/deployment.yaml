@@ -2,29 +2,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: {{ .Release.Namespace }}
-  name: prizm-web-landing
+  name: prizm-web-user
   labels:
-    app: prizm-web-landing
+    app: prizm-web-user
 
 spec:
   replicas: 1
 
   selector:
     matchLabels:
-      app: prizm-web-landing
+      app: prizm-web-user
 
   template:
     metadata:
       labels:
-        app: prizm-web-landing
+        app: prizm-web-user
 
     spec:
       containers:
-        - name: prizm-web-landing
-          image: 'ghcr.io/himedia-no1/prizm-web-landing:{{ index .Values.image "prizm-web-landing-tag" }}'
+        - name: prizm-web-user
+          image: "{{ .Values.prizm.web.user.prizmWebUserImage }}"
           imagePullPolicy: IfNotPresent
 
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 3000
               protocol: TCP
