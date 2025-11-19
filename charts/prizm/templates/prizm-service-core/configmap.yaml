@@ -7,31 +7,32 @@ metadata:
     app: prizm-service-core
 
 data:
-  DB_HOST: "{{ .Values.prizm.service.core.db.host }}"
-  DB_PORT: "{{ .Values.prizm.service.core.db.port }}"
-  DB_USERNAME: "{{ .Values.prizm.service.core.db.username }}"
-  DB_NAME: "{{ .Values.prizm.service.core.db.name }}"
+  DB_HOST: "{{ .Values.prizm.db.host }}"
+  DB_PORT: "{{ .Values.prizm.db.port }}"
+  DB_USERNAME: "{{ .Values.prizm.db.username }}"
+  DB_NAME: "{{ .Values.prizm.db.name }}"
 
-  REDIS_HOST: "{{ .Values.prizm.service.core.redis.host }}"
-  REDIS_PORT: "{{ .Values.prizm.service.core.redis.port }}"
+  REDIS_HOST: "{{ .Values.prizm.redis.host }}"
+  REDIS_PORT: "{{ .Values.prizm.redis.port }}"
 
-  S3_ENDPOINT: "{{ .Values.prizm.service.core.s3.endpoint }}"
-  S3_REGION: "{{ .Values.prizm.service.core.s3.region }}"
-  S3_ACCESS_KEY: "{{ .Values.prizm.service.core.s3.accessKey }}"
-  S3_BUCKET: "{{ .Values.prizm.service.core.s3.bucket }}"
+  S3_ENDPOINT: "{{ .Values.prizm.s3.endpoint }}"
+  S3_REGION: "{{ .Values.prizm.s3.region }}"
+  S3_ACCESS_KEY: "{{ .Values.prizm.s3.accessKey }}"
+  S3_BUCKET: "{{ .Values.prizm.s3.bucket }}"
+  S3_PUBLIC_URL: "{{ .Values.prizm.s3.publicUrl }}"
 
-  RABBITMQ_HOST: "{{ .Values.prizm.service.core.rabbitmq.host }}"
-  RABBITMQ_PORT: "{{ .Values.prizm.service.core.rabbitmq.port }}"
-  RABBITMQ_STOMP_PORT: "{{ .Values.prizm.service.core.rabbitmq.stompPort }}"
-  RABBITMQ_USERNAME: "{{ .Values.prizm.service.core.rabbitmq.username }}"
+  RABBITMQ_HOST: "{{ .Values.prizm.rabbitmq.host }}"
+  RABBITMQ_PORT: "{{ .Values.prizm.rabbitmq.port }}"
+  RABBITMQ_STOMP_PORT: "{{ .Values.prizm.rabbitmq.stompPort }}"
+  RABBITMQ_USERNAME: "{{ .Values.prizm.rabbitmq.username }}"
 
-  OAUTH2_GITHUB_CLIENT_ID: "{{ .Values.prizm.service.core.oauth2.github.clientId }}"
+  OAUTH2_GITHUB_CLIENT_ID: "{{ .Values.prizm.oauth2.github.clientId }}"
 
-  OAUTH2_GOOGLE_CLIENT_ID: "{{ .Values.prizm.service.core.oauth2.google.clientId }}"
+  OAUTH2_GOOGLE_CLIENT_ID: "{{ .Values.prizm.oauth2.google.clientId }}"
 
-  JWT_ACCESS_TOKEN_EXPIRATION: "{{ .Values.prizm.service.core.db.host }}"
-  JWT_REFRESH_TOKEN_EXPIRATION: "{{ .Values.prizm.service.core.db.host }}"
+  JWT_ACCESS_TOKEN_EXPIRATION: "{{ .Values.prizm.db.host }}"
+  JWT_REFRESH_TOKEN_EXPIRATION: "{{ .Values.prizm.db.host }}"
 
   COOKIE_DOMAIN: "{{ .Values.ingress.hosts }}"
 
-  TRANSLATE_API_URL: "{{ .Values.prizm.service.core.translate.apiUrl }}"
+  TRANSLATE_API_URL: "http://prizm-service-ai/translate"

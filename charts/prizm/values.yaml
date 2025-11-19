@@ -3,52 +3,46 @@ ingress:
   clusterIssuer: "selfsigned-cluster-issuer"
 
 prizm:
-  web:
-    user:
-      prizmWebUserImage: "image"
+  prizmWebUserImageTag: tag
+  prizmServiceCoreImageTag: tag
+  prizmServiceAiImageTag: tag
 
-  service:
-    core:
-      prizmServiceCoreImage: "image"
+  db:
+    host: "postgres"
+    port: "5432"
+    username: "prizm"
+    password: ""
+    name: "prizm"
 
-      db:
-        host: "postgres"
-        port: "5432"
-        username: "prizm"
-        password: ""
-        name: "prizm"
+  redis:
+    host: "redis"
+    port: "6379"
+    password: ""
 
-      redis:
-        host: "redis"
-        port: "6379"
-        password: ""
+  s3:
+    endpoint: "http://minio:9000"
+    region: "us-east-1"
+    accessKey: "prizm"
+    secretKey: ""
+    bucket: "file"
+    publicUrl: "https://dev.prizm.run"
 
-      s3:
-        endpoint: "http://minio:9000"
-        region: "us-east-1"
-        accessKey: "prizm"
-        secretKey: ""
-        bucket: "file"
+  rabbitmq:
+    host: "rabbitmq"
+    port: "5672"
+    stompPort: "61613"
+    username: "prizm"
+    password: ""
 
-      rabbitmq:
-        host: "rabbitmq"
-        port: "5672"
-        stompPort: "61613"
-        username: "prizm"
-        password: ""
+  oauth2:
+    github:
+      clientId: "Ov23livpsn3U5r3C54yY"
+      clientSecret: ""
+    google:
+      clientId: "839875779709-6guut6eh19ua7pajr6bv6dusn8m7rd0a.apps.googleusercontent.com"
+      clientSecret: ""
 
-      oauth2:
-        github:
-          clientId: "Ov23livpsn3U5r3C54yY"
-          clientSecret: ""
-        google:
-          clientId: "839875779709-6guut6eh19ua7pajr6bv6dusn8m7rd0a.apps.googleusercontent.com"
-          clientSecret: ""
-
-      jwt:
-        secret: ""
-        access-token-expiration: "600000"
-        refresh-token-expiration: "604800000"
-
-      translate:
-        apiUrl: ""
+  jwt:
+    secret: ""
+    access-token-expiration: "600000"
+    refresh-token-expiration: "604800000"
