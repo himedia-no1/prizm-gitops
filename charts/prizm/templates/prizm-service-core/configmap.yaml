@@ -7,13 +7,15 @@ metadata:
     app: prizm-service-core
 
 data:
-  DB_HOST: "{{ .Values.prizm.db.host }}"
-  DB_PORT: "{{ .Values.prizm.db.port }}"
-  DB_USERNAME: "{{ .Values.prizm.db.username }}"
-  DB_NAME: "{{ .Values.prizm.db.name }}"
+  DB_HOST: "{{ .Values.prizm.postgresql.host }}"
+  DB_PORT: "{{ .Values.prizm.postgresql.port }}"
+  DB_USERNAME: "{{ .Values.prizm.postgresql.username }}"
+  DB_NAME: "{{ .Values.prizm.postgresql.name }}"
 
   REDIS_HOST: "{{ .Values.prizm.redis.host }}"
   REDIS_PORT: "{{ .Values.prizm.redis.port }}"
+  REDIS_USERNAME: "{{ .Values.prizm.redis.username }}"
+  REDIS_DATABASE: "{{ .Values.prizm.redis.database }}"
 
   S3_ENDPOINT: "{{ .Values.prizm.s3.endpoint }}"
   S3_REGION: "{{ .Values.prizm.s3.region }}"
@@ -30,9 +32,7 @@ data:
 
   OAUTH2_GOOGLE_CLIENT_ID: "{{ .Values.prizm.oauth2.google.clientId }}"
 
-  JWT_ACCESS_TOKEN_EXPIRATION: "{{ .Values.prizm.db.host }}"
-  JWT_REFRESH_TOKEN_EXPIRATION: "{{ .Values.prizm.db.host }}"
+  JWT_ACCESS_TOKEN_EXPIRATION: "{{ .Values.prizm.postgresql.host }}"
+  JWT_REFRESH_TOKEN_EXPIRATION: "{{ .Values.prizm.postgresql.host }}"
 
   COOKIE_DOMAIN: "{{ .Values.ingress.hosts }}"
-
-  TRANSLATE_API_URL: "http://prizm-service-ai/translate"

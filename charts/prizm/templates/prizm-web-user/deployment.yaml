@@ -23,9 +23,6 @@ spec:
         - name: prizm-web-user
           image: "ghcr.io/himedia-no1/prizm-web-user:{{ .Values.prizm.prizmWebUserImageTag }}"
           imagePullPolicy: IfNotPresent
-          envFrom:
-            - configMapRef:
-                name: prizm-web-user
 
           ports:
             - name: http
