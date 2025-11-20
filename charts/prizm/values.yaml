@@ -1,5 +1,5 @@
 ingress:
-  hosts: "dev.prizm.run"
+  hosts: "prizm.run"
   clusterIssuer: "selfsigned-cluster-issuer"
 
 prizm:
@@ -8,36 +8,36 @@ prizm:
   prizmServiceAiImageTag: tag
 
   postgresql:
-    host: "postgresql.prizm-infra-development.svc.cluster.local"
+    host: "postgresql"
     port: "5432"
     username: "prizm"
     password: ""
     name: "prizm"
 
   redis:
-    host: "redis.prizm-infra-development.svc.cluster.local"
+    host: "redis"
     port: "6379"
     username: ""
     password: ""
     database: "0"
 
   s3:
-    endpoint: "http://minio.prizm-infra-development.svc.cluster.local:9000"
+    endpoint: "http://minio:9000"
     region: "us-east-1"
     accessKey: "prizm"
     secretKey: ""
     bucket: "file"
-    publicUrl: "https://dev.prizm.run"
+    publicUrl: "https://prizm.run"
 
   rabbitmq:
-    host: "rabbitmq.prizm-infra-development.svc.cluster.local"
+    host: "rabbitmq"
     port: "5672"
     stompPort: "61613"
     username: "prizm"
     password: ""
 
   qdrant:
-    host: "qdrant.prizm-infra-development.svc.cluster.local"
+    host: "qdrant"
     port: "6333"
     apiKey: ""
 
@@ -48,10 +48,10 @@ prizm:
 
   oauth2:
     github:
-      clientId: "Ov23livpsn3U5r3C54yY"
+      clientId: "Ov23liCd0dd4B2Tx1rSm"
       clientSecret: ""
     google:
-      clientId: "839875779709-6guut6eh19ua7pajr6bv6dusn8m7rd0a.apps.googleusercontent.com"
+      clientId: "839875779709-5dnbu873hbr5nlnl6oi88uk8e6od9l3i.apps.googleusercontent.com"
       clientSecret: ""
 
   jwt:
