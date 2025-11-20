@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: prizm-web-user
+  labels:
+    app: prizm-web-user
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: prizm-web-user
+
+  template:
+    metadata:
+      labels:
+        app: prizm-web-user
+
+    spec:
+      containers:
+        - name: prizm-web-user
+          image: "ghcr.io/himedia-no1/prizm-web-user:{{ .Values.prizm.prizmWebUserImageTag }}"
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP

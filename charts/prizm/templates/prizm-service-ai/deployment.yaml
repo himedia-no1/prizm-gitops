@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: prizm-service-ai
+  labels:
+    app: prizm-service-ai
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: prizm-service-ai
+
+  template:
+    metadata:
+      labels:
+        app: prizm-service-ai
+
+    spec:
+      containers:
+        - name: prizm-service-ai
+          image: "ghcr.io/himedia-no1/prizm-service-ai:{{ .Values.prizm.prizmServiceAiImageTag }}"
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: prizm-service-ai
+            - secretRef:
+                name: prizm-service-ai
+
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP

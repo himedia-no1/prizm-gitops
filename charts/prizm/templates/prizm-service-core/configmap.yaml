@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: prizm-service-core
+  labels:
+    app: prizm-service-core
+
+data:
+  DB_HOST: "{{ .Values.prizm.postgresql.host }}"
+  DB_PORT: "{{ .Values.prizm.postgresql.port }}"
+  DB_USERNAME: "{{ .Values.prizm.postgresql.username }}"
+  DB_NAME: "{{ .Values.prizm.postgresql.name }}"
+
+  REDIS_HOST: "{{ .Values.prizm.redis.host }}"
+  REDIS_PORT: "{{ .Values.prizm.redis.port }}"
+  REDIS_USERNAME: "{{ .Values.prizm.redis.username }}"
+  REDIS_DATABASE: "{{ .Values.prizm.redis.database }}"
+
+  S3_ENDPOINT: "{{ .Values.prizm.s3.endpoint }}"
+  S3_REGION: "{{ .Values.prizm.s3.region }}"
+  S3_ACCESS_KEY: "{{ .Values.prizm.s3.accessKey }}"
+  S3_BUCKET: "{{ .Values.prizm.s3.bucket }}"
+  S3_PUBLIC_URL: "{{ .Values.prizm.s3.publicUrl }}"
+
+  RABBITMQ_HOST: "{{ .Values.prizm.rabbitmq.host }}"
+  RABBITMQ_PORT: "{{ .Values.prizm.rabbitmq.port }}"
+  RABBITMQ_STOMP_PORT: "{{ .Values.prizm.rabbitmq.stompPort }}"
+  RABBITMQ_USERNAME: "{{ .Values.prizm.rabbitmq.username }}"
+
+  OAUTH2_GITHUB_CLIENT_ID: "{{ .Values.prizm.oauth2.github.clientId }}"
+
+  OAUTH2_GOOGLE_CLIENT_ID: "{{ .Values.prizm.oauth2.google.clientId }}"
+
+  JWT_ACCESS_TOKEN_EXPIRATION: "{{ .Values.prizm.postgresql.host }}"
+  JWT_REFRESH_TOKEN_EXPIRATION: "{{ .Values.prizm.postgresql.host }}"
+
+  COOKIE_DOMAIN: "{{ .Values.ingress.hosts }}"

@@ -1,11 +1,60 @@
-image:
-  tag:
-    prizm-web-landing: tag
-    prizm-web-user: tag
-    prizm-web-admin: tag
-    prizm-service-core: tag
-    prizm-service-ai: tag
+ingress:
+  hosts: "dev.prizm.run"
+  clusterIssuer: "selfsigned-cluster-issuer"
 
-gateway:
-  namespace: nginx-gateway
-  name: http-gateway
+prizm:
+  prizmWebUserImageTag: tag
+  prizmServiceCoreImageTag: tag
+  prizmServiceAiImageTag: tag
+
+  postgresql:
+    host: "postgresql.prizm-infra-development.svc.cluster.local"
+    port: "5432"
+    username: "prizm"
+    password: ""
+    name: "prizm"
+
+  redis:
+    host: "redis.prizm-infra-development.svc.cluster.local"
+    port: "6379"
+    username: ""
+    password: ""
+    database: "0"
+
+  s3:
+    endpoint: "http://minio.prizm-infra-development.svc.cluster.local:9000"
+    region: "us-east-1"
+    accessKey: "prizm"
+    secretKey: ""
+    bucket: "file"
+    publicUrl: "https://dev.prizm.run"
+
+  rabbitmq:
+    host: "rabbitmq.prizm-infra-development.svc.cluster.local"
+    port: "5672"
+    stompPort: "61613"
+    username: "prizm"
+    password: ""
+
+  qdrant:
+    host: "qdrant.prizm-infra-development.svc.cluster.local"
+    port: "6333"
+    apiKey: ""
+
+  openai:
+    apiKey: ""
+    model: "gpt-4o-mini"
+    chatModel: "gpt-4o"
+
+  oauth2:
+    github:
+      clientId: "Ov23livpsn3U5r3C54yY"
+      clientSecret: ""
+    google:
+      clientId: "839875779709-6guut6eh19ua7pajr6bv6dusn8m7rd0a.apps.googleusercontent.com"
+      clientSecret: ""
+
+  jwt:
+    secret: ""
+    access-token-expiration: "600000"
+    refresh-token-expiration: "604800000"
