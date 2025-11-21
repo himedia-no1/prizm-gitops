@@ -3,7 +3,7 @@ ingress:
   clusterIssuer: "selfsigned-cluster-issuer"
 
 prizm:
-  prizmWebUserImageTag: tag
+  prizmWebUserImageTag: 5554928eabd35eed68650b9719f685e6072b772d
   prizmServiceCoreImageTag: tag
   prizmServiceAiImageTag: tag
 
